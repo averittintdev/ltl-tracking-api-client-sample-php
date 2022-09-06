@@ -10,4 +10,4 @@ This code shows how to validate the HTTP signature included in the HTTP header s
 
 To run the sample code, download the pem and add its path to configuration.php.
 
-E.g. `php -S localhost:8888`
+E.g. `php -S 0.0.0.0:8889`

@@ -36,7 +36,7 @@ if ($reqMethod === 'PUT' && $action === "/shipments") {
         logTerminal("ugly, error checking signature");
     }
 
-    http_response_code(200);
+    http_response_code(204);
 }
 
 function isLegitDigitalSignature($signature, $inputStr) {

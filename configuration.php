@@ -1,6 +1,6 @@
 <?php
 function retrievePublicKey() {
-    $fp = fopen("/home/jason/software/temp/public_key_rsa_4096_pkcs8-exported.pem", "r");
+    $fp = fopen("/home/webmanager/temp/push-pro-api-public-key.pem", "r");
     $publicKey = fread($fp, 4096);
     fclose($fp);
 

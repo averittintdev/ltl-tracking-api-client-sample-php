@@ -9,7 +9,6 @@ require_once "configuration.php";
 
 $reqMethod = $_SERVER['REQUEST_METHOD'];
 $action = $_SERVER['REQUEST_URI'];
-logTerminal($action . ' ' . $reqMethod);
 
 if ($reqMethod === 'PUT' && $action === "/shipments") {
     $headers = getallheaders();
@@ -27,6 +26,7 @@ if ($reqMethod === 'PUT' && $action === "/shipments") {
    }
    logTerminal('signature : ' . $signature);
 
+   // Taken from : https://www.php.net/manual/en/function.openssl-verify.php
     $isLegit = isLegitDigitalSignature($signature, $inputStr);
     if ($isLegit == 1) {
         logTerminal("good");
@@ -36,7 +36,7 @@ if ($reqMethod === 'PUT' && $action === "/shipments") {
         logTerminal("ugly, error checking signature");
     }
 
-    http_response_code(200);
+    http_response_code(204);
 }
 
 function isLegitDigitalSignature($signature, $inputStr) {
